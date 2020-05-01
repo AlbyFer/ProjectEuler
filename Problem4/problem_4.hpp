@@ -47,3 +47,33 @@ bool is_palindrome(unsigned int n) {
             }
         }
 }
+
+
+std::vector<double> find_divisors(unsigned int n, int min, int max) {
+    
+    double i = max;
+    std::vector<double> divs (2);
+    double quot = 0.0;
+    double mod = 1;
+    
+    n = n * 1.0;
+    
+    while (mod != 0) {
+        
+        if (i < min) {
+            
+            divs[0] = 0;
+            divs[1] = 0;
+            
+            return divs;
+        }
+        
+        mod = fmod(n, i);
+        quot = n/i;
+        i--;
+    }
+    divs[0] = i+1;
+    divs[1] = quot;
+    
+    return divs;
+}
